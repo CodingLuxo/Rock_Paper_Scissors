@@ -18,51 +18,54 @@ function singleRound(playerSelection,computerSelection){
 
     if(playerSelection == computerSelection) {
 
-        console.log("It's a tie, keep playing");
+        console.log("It's a tie, keep playing",scorePlayer,scoreComputer);
        
 
     }
 
     else if (playerSelection == "rock" && computerSelection == "paper"){
 
-        console.log ("you lose, rock loses against paper");
-        return scoreComputer += 1;
+        scoreComputer += 1;
+        console.log ("you lose, rock loses against paper",scorePlayer,scoreComputer);
         
     }
 
     else if (playerSelection == "rock" && computerSelection == "scissors") {
 
-        console.log("well done, rock beats scissors");
-        return scorePlayer += 1; 
+        scorePlayer += 1;
+        console.log("well done, rock beats scissors",scorePlayer,scoreComputer);
+         
          
     }
 
     else if (playerSelection == "paper" && computerSelection == "rock") {
 
-        console.log ("well done, paper beats rock");
-        return scorePlayer += 1; 
-
-    
+        scorePlayer += 1; 
+        console.log ("well done, paper beats rock",scorePlayer,scoreComputer);
+           
     }
 
     else if (playerSelection == "paper" && computerSelection == "scissors") {
 
-        console.log ("you lose, your paper gets cutted by the scissors");
-        return scoreComputer += 1;
+        scoreComputer += 1;
+        console.log ("you lose, your paper gets cutted by my scissors",scorePlayer,scoreComputer);
+        
     
     }
 
     else if (playerSelection == "scissors" && computerSelection == "rock") {
 
-        console.log("you lose, your scissors can't cut my solid rock hahah");
-        return scoreComputer += 1;
+        scoreComputer += 1;
+        console.log("you lose, your scissors can't cut my solid rock hahah",scorePlayer,scoreComputer);
+        
     
     }
 
     else if (playerSelection == "scissors" && computerSelection == "paper") {
 
-        return "amazing, you win";
         scorePlayer += 1; 
+        console.log("Well done, scissors beats paper",scorePlayer,scoreComputer);
+        
 
         
     }
@@ -83,20 +86,24 @@ function game () {
             break;
         }
 
-        if(scorePlayer > scoreComputer){
-
-            console.log ("Congratulations, you just win Rock, paper and scissors");
-        }
-
-        else if (scorePlayer < scoreComputer){
-
-            console.log("So sad, you lose, better luck next time");
-        }
-
-        else {
-
-            console.log("It's a tie, thank you for playing.");
-        }
+       
      
+    }
+
+    if(scorePlayer > scoreComputer){
+        
+        //display final result
+
+        console.log ("Congratulations, you just win Rock, paper and scissors");
+    }
+
+    else if (scorePlayer < scoreComputer){
+
+        console.log("So sad, you lose, better luck next time");
+    }
+
+    else {
+
+        console.log("It's a tie, thank you for playing.");
     }
 }
