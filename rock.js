@@ -5,14 +5,10 @@ let scoreComputer = 0;
 
 function computerPlay(){
 
-const random = Math.floor(Math.random() * juegoComputadora.length);
-
-return juegoComputadora[random];
+const random = juegoComputadora[Math.floor(Math.random() * juegoComputadora.length)];
+return random;
 
 }
-
-playerSelection = prompt("Make your choice").toLowerCase();
-computerSelection = computerPlay();
 
 function singleRound(playerSelection,computerSelection){
 
@@ -74,4 +70,18 @@ function singleRound(playerSelection,computerSelection){
 }
 
 
-console.log(singleRound(playerSelection,computerSelection))
+function game () {
+
+    for(let i = 0; i < 5; i++){
+
+        playerSelection = prompt("Choose Rock,Paper or Scissors").toLowerCase();
+        computerSelection = computerPlay();
+        singleRound(playerSelection,computerSelection) 
+        if( scoreComputer == 3 || scorePlayer == 3){
+
+            break;
+        }
+
+
+    }
+}
