@@ -77,11 +77,26 @@ function game () {
         playerSelection = prompt("Choose Rock,Paper or Scissors").toLowerCase();
         computerSelection = computerPlay();
         singleRound(playerSelection,computerSelection) 
-        if( scoreComputer == 3 || scorePlayer == 3){
-
+        if( scoreComputer == 3 || scorePlayer == 3){ 
+            
+            // Best of five, so the one who gets to three wins the game
             break;
         }
 
+        if(scorePlayer > scoreComputer){
 
+            console.log ("Congratulations, you just win Rock, paper and scissors");
+        }
+
+        else if (scorePlayer < scoreComputer){
+
+            console.log("So sad, you lose, better luck next time");
+        }
+
+        else {
+
+            console.log("It's a tie, thank you for playing.");
+        }
+     
     }
 }
