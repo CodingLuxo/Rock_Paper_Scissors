@@ -21,19 +21,10 @@ return random;
 
 function singleRound(playerSelection,computerSelection){
 
-    
-
-    // I need to ensure that the input value is correct
-
-    if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
-
-        resultado = "wrong choice,please choose only \"rock,paper or scissors\"";
-        return resultado;
-    }
 
     // keep record of the current score.
    
-    else if (playerSelection == computerSelection){
+    if (playerSelection == computerSelection){
        
         resultado = `It's a tie,play again\n ${scorePlayer},${scoreComputer}`;
         return resultado;
@@ -91,6 +82,27 @@ function game () {
         playerSelection = prompt("Choose Rock,Paper or Scissors").toLowerCase(); // case-insensitive
         computerSelection = computerPlay();
         singleRound(playerSelection,computerSelection); 
+        
+        // I need to ensure that the input value is correct
+
+        if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
+        
+        //if input value is wrong, I need to ensure that i value stays the same so we could still play 5 rounds
+
+        if (i > 0){
+
+            i-- ;
+        }
+
+        else { 
+            
+            i = 0;
+        }
+
+        resultado = "wrong choice,please choose only \"rock,paper or scissors\"";
+    
+    }
+
         if( scoreComputer == 3 || scorePlayer == 3){ 
             
             // Best of five, so the first one who gets to three wins the game
