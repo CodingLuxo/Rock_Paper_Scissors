@@ -1,6 +1,7 @@
 let computerArray = ["rock","paper","scissors"];
 let scorePlayer = 0;
 let scoreComputer = 0;
+let resultado;
 
 /* 
 
@@ -20,65 +21,66 @@ return random;
 
 function singleRound(playerSelection,computerSelection){
 
-    // I need to ensure that the input value is correct
-    if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors"){
+    
 
-        console.log ("wrong choice");
+    // I need to ensure that the input value is correct
+
+    if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
+
+        resultado = "wrong choice,please choose only \"rock,paper or scissors\"";
+        return resultado;
     }
 
     // keep record of the current score.
-    else if(playerSelection == computerSelection) {
-
-        console.log("It's a tie, keep playing",scorePlayer,scoreComputer);
+   
+    else if (playerSelection == computerSelection){
        
-
+        resultado = `It's a tie,play again\n ${scorePlayer},${scoreComputer}`;
+        return resultado;
     }
 
     else if (playerSelection == "rock" && computerSelection == "paper"){
 
         scoreComputer += 1;
-        console.log ("you lose, rock loses against paper",scorePlayer,scoreComputer);
-        
+        resultado = `You lose, paper beats rock \n${scorePlayer},${scoreComputer}`;
+        return resultado;
     }
 
     else if (playerSelection == "rock" && computerSelection == "scissors") {
 
         scorePlayer += 1;
-        console.log("well done, rock beats scissors",scorePlayer,scoreComputer);
-         
-         
+        resultado = `You win! Rock beats scissors,congrats! \n ${scorePlayer},${scoreComputer}`;
+        return resultado;
     }
 
     else if (playerSelection == "paper" && computerSelection == "rock") {
 
-        scorePlayer += 1; 
-        console.log ("well done, paper beats rock",scorePlayer,scoreComputer);
-           
+        scorePlayer += 1;
+        resultado = `You win! paper beats rock,congrats! \n ${scorePlayer},${scoreComputer}`;
+        return resultado;
     }
-
+   
     else if (playerSelection == "paper" && computerSelection == "scissors") {
 
         scoreComputer += 1;
-        console.log ("you lose, your paper gets cutted by my scissors",scorePlayer,scoreComputer);
-        
-    
+        resultado = `You lose scissors beats paper,try again \n ${scorePlayer},${scoreComputer}`;
+        return resultado;
     }
 
     else if (playerSelection == "scissors" && computerSelection == "rock") {
 
         scoreComputer += 1;
-        console.log("you lose, your scissors can't cut my solid rock hahah",scorePlayer,scoreComputer);
-        
-    
+        resultado = `You lose rock beats scissors,try again \n ${scorePlayer},${scoreComputer}`;
+        return resultado;
     }
 
     else if (playerSelection == "scissors" && computerSelection == "paper") {
 
-        scorePlayer += 1; 
-        console.log("Well done, scissors beats paper",scorePlayer,scoreComputer);
-                
+        scorePlayer += 1;
+        resultado = `You win! scissors beats paper,congrats! \n ${scorePlayer},${scoreComputer}`;
+        return resultado
     }
-
+    
 }
 
 
@@ -92,10 +94,14 @@ function game () {
         if( scoreComputer == 3 || scorePlayer == 3){ 
             
             // Best of five, so the first one who gets to three wins the game
+            alert(resultado);
+            console.log(resultado);
             break;
         }
 
-       
+    // display current result
+       alert(resultado);
+       console.log(resultado);
      
     }
 
@@ -106,16 +112,19 @@ function game () {
         
 
         console.log ("Congratulations, you just win Rock, paper and scissors");
+        alert("Congratulations, you just win Rock, paper and scissors");
     }
 
     else if (scorePlayer < scoreComputer){
 
         console.log("So sad, you lose, better luck next time");
+        alert("So sad, you lose, better luck next time");
     }
 
     else {
 
         console.log("It's a tie, thank you for playing.");
+        alert("It's a tie, thank you for playing.");
     }
 }
 
