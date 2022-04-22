@@ -1,4 +1,4 @@
-let computerArray = ["rock","paper","scissors"];
+const computerArray = ["rock","paper","scissors"];
 let scorePlayer = 0;
 let scoreComputer = 0;
 let resultado;
@@ -89,16 +89,8 @@ function game () {
         
         //if input value is wrong, I need to ensure that i value stays the same so we could still play 5 rounds
 
-        if (i > 0){
 
-            i-- ;
-        }
-
-        else { 
-            
-            i = 0;
-        }
-
+        i-- ;
         resultado = "wrong choice,please choose only \"rock,paper or scissors\"";
     
     }
