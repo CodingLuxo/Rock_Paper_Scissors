@@ -1,0 +1,66 @@
+
+button{
+
+    height: 150px;
+    width: 150px;
+    border-radius: 1em;
+    background-color: paleturquoise;
+    transition: all .2s ease-in-out; 
+    
+}
+
+button:hover{
+    transform: scale(1.4);
+}
+
+#papelito,#roquita,#tijerita{
+
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.botones{
+
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.resultados{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    
+}
+
+#you,#computer{
+
+    height: 80px;
+    width: 80px;
+    text-align: center;
+    border-style: solid;
+    border-radius: 1em;
+    background-color: burlywood;
+    
+}
+
+p{
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px;
+}
+
+#result{
+
+    height: 80px;
+    width: 350px;
+    text-align: center;
+}
+
+.texto{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 350px;
+    margin-right: 355px;
+}

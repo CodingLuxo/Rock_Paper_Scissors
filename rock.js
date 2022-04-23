@@ -19,6 +19,41 @@ return random;
 
 }
 
+
+
+const buttons = document.querySelectorAll("button");
+const tu = document.querySelector("#you p");
+const cpu = document.querySelector("#computer p");
+const result = document.querySelector("#result p");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () =>{    
+        if(scoreComputer == 5 || scorePlayer == 5)return;
+        singleRound(button.id,computerPlay());
+        tu.textContent = `${scorePlayer}`;
+        cpu.textContent = `${scoreComputer}`;
+        result.textContent = `${resultado}`;
+        if(scorePlayer > scoreComputer && scorePlayer == 5){
+            result.textContent = "Congratulations, you just win Rock, paper and scissors!!";
+        }
+        else if (scorePlayer < scoreComputer && scoreComputer == 5){
+            result.textContent ="So sad, you lose, better luck next time";
+        }   
+    })
+});
+    
+function playAgain(){
+
+    scorePlayer = 0;
+    scoreComputer = 0;
+}    
+
+
+
+    
+
+
+
 function singleRound(playerSelection,computerSelection){
 
 
@@ -26,64 +61,69 @@ function singleRound(playerSelection,computerSelection){
    
     if (playerSelection == computerSelection){
        
-        resultado = `It's a tie,play again\n ${scorePlayer},${scoreComputer}`;
+        resultado = `It's a tie,play again`;
         return resultado;
+        
     }
 
     else if (playerSelection == "rock" && computerSelection == "paper"){
 
         scoreComputer += 1;
-        resultado = `You lose, paper beats rock \n${scorePlayer},${scoreComputer}`;
+        resultado = `You lose, paper beats rock`;
         return resultado;
     }
 
     else if (playerSelection == "rock" && computerSelection == "scissors") {
 
         scorePlayer += 1;
-        resultado = `You win! Rock beats scissors,congrats! \n ${scorePlayer},${scoreComputer}`;
+        resultado = `You win! Rock beats scissors,congrats!`;
         return resultado;
     }
 
     else if (playerSelection == "paper" && computerSelection == "rock") {
 
         scorePlayer += 1;
-        resultado = `You win! paper beats rock,congrats! \n ${scorePlayer},${scoreComputer}`;
+        resultado = `You win! paper beats rock,congrats!`;
         return resultado;
+        alert(resultado);
     }
    
     else if (playerSelection == "paper" && computerSelection == "scissors") {
 
         scoreComputer += 1;
-        resultado = `You lose scissors beats paper,try again \n ${scorePlayer},${scoreComputer}`;
+        resultado = `You lose scissors beats paper,try again`;
         return resultado;
     }
 
     else if (playerSelection == "scissors" && computerSelection == "rock") {
 
         scoreComputer += 1;
-        resultado = `You lose rock beats scissors,try again \n ${scorePlayer},${scoreComputer}`;
+        resultado = `You lose rock beats scissors,try again`;
         return resultado;
     }
 
     else if (playerSelection == "scissors" && computerSelection == "paper") {
 
         scorePlayer += 1;
-        resultado = `You win! scissors beats paper,congrats! \n ${scorePlayer},${scoreComputer}`;
+        resultado = `You win! scissors beats paper,congrats!`;
         return resultado
     }
     
 }
 
 
-function game () {
+
+
+
+/*function game () {
 
     for(let i = 0; i < 5; i++){
 
-        playerSelection = prompt("Choose Rock,Paper or Scissors").toLowerCase(); // case-insensitive
+    
         computerSelection = computerPlay();
         singleRound(playerSelection,computerSelection); 
         
-        // I need to ensure that the input value is correct
+        // I need to make sure that the input value is correct
 
         if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
         
@@ -133,3 +173,4 @@ function game () {
 }
 
 game ();
+*/

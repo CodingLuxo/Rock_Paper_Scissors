@@ -3,13 +3,32 @@
   <head>
         <title>Rock Paper Scissors</title>
         <meta charset="utf-8">
-        <script type="text/javascript" src="rock.js"></script>
+        <script type="text/javascript" src="rock.js" defer></script>
+        <link rel="stylesheet" href="styles.css">
   </head>   
 
   <body>
-
-
-
+    <div class="botones">
+      <button id ="rock">
+        <img id="roquita" src="img/rock.png">
+      </button>
+      <button id ="paper">
+        <img id="papelito" src="img/paper.png">
+      </button>
+      <button id ="scissors">
+        <img id="tijerita" src="img/scissors.png">
+      </button>
+  </div>
+  <div class="texto">
+    <p>Your Score</p>
+    <p>IA Score</p>
+  </div>
+  <div class="resultados">
+    <div id="you"><p></p></div>
+    <div id ="result"><p></p></div>
+    <div id="computer"><p></p></div>
+  </div>
+  <div class="pg"></div>
   </body>
 
 
