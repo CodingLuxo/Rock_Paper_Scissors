@@ -1,4 +1,15 @@
 
+body{
+
+    background: url(img/yellow.jpg);
+}
+h1{
+    font-family: 'Calligraffitti', cursive;
+    font-size: 90px;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
 button{
 
     height: 150px;
@@ -10,7 +21,7 @@ button{
 }
 
 button:hover{
-    transform: scale(1.4);
+    transform: scale(1.2);
 }
 
 #papelito,#roquita,#tijerita{
@@ -24,7 +35,7 @@ button:hover{
     display: flex;
     justify-content:space-around;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .resultados{
@@ -63,4 +74,23 @@ p{
     justify-content: space-between;
     margin-left: 350px;
     margin-right: 355px;
+}
+
+.pg{
+    height: 80px;
+    width: 350px;
+    text-align: center;
+    border-style: solid;
+    border-radius: 1em;
+    background-color: burlywood;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px;
+
+}
+
+#final{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    
 }

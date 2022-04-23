@@ -25,33 +25,46 @@ const buttons = document.querySelectorAll("button");
 const tu = document.querySelector("#you p");
 const cpu = document.querySelector("#computer p");
 const result = document.querySelector("#result p");
+const again = document.createElement("button");
+again.classList.add("pg");
+const lastdiv = document.querySelector("#final");
 
-buttons.forEach((button) => {
-    button.addEventListener("click", () =>{    
-        if(scoreComputer == 5 || scorePlayer == 5)return;
-        singleRound(button.id,computerPlay());
-        tu.textContent = `${scorePlayer}`;
-        cpu.textContent = `${scoreComputer}`;
-        result.textContent = `${resultado}`;
-        if(scorePlayer > scoreComputer && scorePlayer == 5){
-            result.textContent = "Congratulations, you just win Rock, paper and scissors!!";
-        }
-        else if (scorePlayer < scoreComputer && scoreComputer == 5){
-            result.textContent ="So sad, you lose, better luck next time";
-        }   
-    })
-});
-    
+
 function playAgain(){
 
     scorePlayer = 0;
     scoreComputer = 0;
-}    
+    tu.textContent = `${scorePlayer}`;
+    cpu.textContent = `${scoreComputer}`;
+    result.textContent = "";
+}  
 
-
-
-    
-
+buttons.forEach((button) => { //For each button in the Nodelist
+    button.addEventListener("click", () => {    
+        if(scoreComputer == 5 || scorePlayer == 5)return; //Make sure that 5 is the final score
+        singleRound(button.id,computerPlay()); //button.id = "rock" || "paper" || "scissors" 
+        tu.textContent = `${scorePlayer}`;     // display
+        cpu.textContent = `${scoreComputer}`;  // scores
+        result.textContent = `${resultado}`;   // of player and IA
+        if(scorePlayer > scoreComputer && scorePlayer == 5){
+            result.textContent = "Congratulations, you just win Rock, paper and scissors!!";
+            lastdiv.appendChild(again); //the play again button appear
+            again.textContent = "Play Again"; 
+        }
+        else if (scorePlayer < scoreComputer && scoreComputer == 5){
+            result.textContent ="So sad, you lose, better luck next time";
+            lastdiv.appendChild(again);
+            again.textContent = "Play Again";
+        }   
+    })
+});
+ 
+// When you pressed "Play again" button, it dissapears without refreshing the page
+again.addEventListener("click",() =>{
+    playAgain();
+    lastdiv.removeChild(again);    
+});
+  
 
 
 function singleRound(playerSelection,computerSelection){
@@ -69,7 +82,7 @@ function singleRound(playerSelection,computerSelection){
     else if (playerSelection == "rock" && computerSelection == "paper"){
 
         scoreComputer += 1;
-        resultado = `You lose, paper beats rock`;
+        resultado = `You lose, paper beats rock,try again`;
         return resultado;
     }
 
@@ -85,20 +98,20 @@ function singleRound(playerSelection,computerSelection){
         scorePlayer += 1;
         resultado = `You win! paper beats rock,congrats!`;
         return resultado;
-        alert(resultado);
+    
     }
    
     else if (playerSelection == "paper" && computerSelection == "scissors") {
 
         scoreComputer += 1;
-        resultado = `You lose scissors beats paper,try again`;
+        resultado = `You lose, scissors beats paper,try again`;
         return resultado;
     }
 
     else if (playerSelection == "scissors" && computerSelection == "rock") {
 
         scoreComputer += 1;
-        resultado = `You lose rock beats scissors,try again`;
+        resultado = `You lose,rock beats scissors,try again`;
         return resultado;
     }
 
